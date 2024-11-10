@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 // image import
-import brandLogo from "../assets/corporation-logo 1.png";
+import brandLogo from "../../assets/corporation-logo 1.png";
 
 
 
 // fontawsome icon
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import Container from '../Container/Container';
 
 const Navbar = () => {
     // menu item array
@@ -45,14 +46,15 @@ const Navbar = () => {
 
     
   return (
-    <nav className={`fixed  w-full  top-0 py-3  transition-all ${
+    <nav className={`fixed  w-full  top-0 py-3  transition-all z-[999] ${
         navbarbg ?' bg-blue-600'  : 'bg-transparent '
     } ${navbarTop ? 'mt-0' : 'mt-8'}`}>
-        <div className='container flex items-center'>
+        <Container>
+        <div className='flex items-center'>
         <div className="logo w-1/5">
         <img src={brandLogo} alt="brand_logo" />
         </div>
-        <div className="menu w-4/5 flex justify-center  text-white">
+        <div className="menu w-4/5 flex justify-end  text-white">
             <ul className='flex items-center '>
                 {listItem.map((listItem) =>(
                     listItem.item.map((item, index)=>(
@@ -73,6 +75,7 @@ const Navbar = () => {
             </div>
         </div>
         </div>
+        </Container>
     </nav>
   )
 }
